@@ -1,0 +1,15 @@
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"outDir": "./dist/",
+		"sourceMap": true,
+		"module": "commonjs",
+		"noImplicitAny": true,
+		"jsx": "react",
+		"target": "es6",
+		"lib": [
+			"es2018",
+			"dom"
+		]
+	}
+}
