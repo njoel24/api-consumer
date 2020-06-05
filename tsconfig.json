@@ -3,6 +3,7 @@
 	"compilerOptions": {
 		"outDir": "./dist/",
 		"sourceMap": true,
+		"esModuleInterop": true,
 		"module": "commonjs",
 		"noImplicitAny": true,
 		"jsx": "react",

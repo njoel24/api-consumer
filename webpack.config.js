@@ -5,7 +5,7 @@ module.exports = {
 	mode: "production",
 	devtool: "source-map",
 	resolve: {
-		extensions: [".ts", ".tsx"]
+		extensions: [".ts", ".tsx", ".js"]
 	},
 	module: {
 		rules: [
@@ -27,7 +27,7 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebPackPlugin({
-		   template: path.resolve( __dirname, 'public/index.html' ),
+		   template: path.resolve( __dirname, 'index.html' ),
 		   filename: 'index.html'
 		})
 	],
@@ -45,6 +45,7 @@ module.exports = {
 		},
 		quiet: true,
 		hot: true,
-		http2: true
+		http2: true,
+		https: true
 	},
 };
