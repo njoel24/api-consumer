@@ -5,7 +5,7 @@ module.exports = {
 	mode: "production",
 	devtool: "source-map",
 	resolve: {
-		extensions: [".ts", ".tsx", ".js"]
+		extensions: [".ts", ".tsx", ".js", ".css"]
 	},
 	module: {
 		rules: [
@@ -22,6 +22,18 @@ module.exports = {
 				enforce: "pre",
 				test: /\.js$/,
 				loader: "source-map-loader"
+			},
+			{
+				test: /\.module\.css$/,
+				loader: ['style-loader',
+					{
+						loader: 'css-loader',
+						options: {
+							modules: true,
+							importLoaders: 1
+						}
+					}, 
+					'postcss-loader']
 			}
 		]
 	},
