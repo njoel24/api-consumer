@@ -1,9 +1,9 @@
-@import '../../modules/config.module.css';
+@import '../config.module.css';
 
 .root {
 	display: flex;
 	flex-direction: column;
-	width: 20%;
+	width: 80%;
 }
 
 .root a {

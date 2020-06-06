@@ -1,4 +1,4 @@
-@import '../../modules/config.module.css';
+@import '../config.module.css';
 
 .root {
 	display: flex;

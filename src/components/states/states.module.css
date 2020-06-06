@@ -1,0 +1,12 @@
+@import '../config.module.css';
+
+.root {
+	display: flex;
+	flex-direction: column;
+	width: 20%;
+}
+
+.root a {
+	cursor: pointer;
+	margin: 5px 0;
+}
