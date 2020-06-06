@@ -1,9 +1,9 @@
 import * as React from "react";
 import styleable from "react-styleable";
-import { SecondLevelDetailProps } from "./weather-pollution-by-city.model";
+import { WeatherPollutionByCityProps } from "./weather-pollution-by-city.model";
 import css from "./weather-pollution-by-city.module.css";
 
-const SecondLevelDetail = (props: SecondLevelDetailProps) => {
+const WeatherPollutionByCity = (props: WeatherPollutionByCityProps) => {
 	const {detail, css: {root}} = props;
 	if (!detail) {
 		return null;
@@ -33,4 +33,4 @@ const SecondLevelDetail = (props: SecondLevelDetailProps) => {
 	</div>
 };
 
-export default styleable(css)(SecondLevelDetail);
+export default styleable(css)(WeatherPollutionByCity);

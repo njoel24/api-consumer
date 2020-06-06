@@ -2,9 +2,9 @@ import * as React from "react";
 import styleable from "react-styleable";
 import css from "./states.module.css";
 
-export interface ListProps { states: any[], getCitiesByState: (state: string) => void, css: any}
+export interface StateProps { states: any[], getCitiesByState: (state: string) => void, css: any}
 
-const States = (props: ListProps) => {
+const States = (props: StateProps) => {
 	const {states, getCitiesByState, css: {root}} = props;
 	const statesList = states.map((d) =>
 		<a key={d.state} onClick={() => props.getCitiesByState(d.state)}>
