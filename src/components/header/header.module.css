@@ -1,11 +1,9 @@
 @import '../config.module.css';
 
 .root {
-	width: 100%;
-	height: 10vh;
-	background-color: black;
+	background-color: yellow;
 }
 
 .root > h1 {
-	padding: 5px;;
+	padding: 5px;
 }

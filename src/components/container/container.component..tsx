@@ -1,8 +1,8 @@
 import React, {useEffect, useState, Props} from "react";
 import styleable from "react-styleable";
 import axios, {CancelToken} from "axios";
-import States from "../states/states.component.";
-import Cities from "../cities/cities.component";
+import States from "../states-by-country/states-by-country.component.";
+import Cities from "../cities-by-state/cities-by-state.component";
 import WeatherPollutionByCity from "../weather-pollution-by-city/weather-pollution-by-city.component";
 import Loader from "../loader/loader.component";
 import css from "./container.module.css";
@@ -14,6 +14,7 @@ const Container = (props: ContainerProps) => {
 	const [states, setStates] = useState([]);
 	const [cities, setCities] = useState([]);
 	const [stateSelected, setStateSelected] = useState("");
+	const [citySelected, setCitySelected] = useState("");
 	const [weatherPollutionByCity, setWeatherPollutionByCity] = useState(null);
 	const dataRequested = true;
 
@@ -23,7 +24,8 @@ const Container = (props: ContainerProps) => {
 	
 		axios.get(statesByCountryUrl, { cancelToken: ajaxRequest.token })
 		.then((res) => {
-			const {data: {data}} = res;
+			let {data: {data}} = res;
+			data = data.map((d: any) => d.state);
 			setStates(data);
 		}).catch((err) => console.warn(err));
 	
@@ -36,18 +38,20 @@ const Container = (props: ContainerProps) => {
 		const url = `https://api.airvisual.com/v2/cities?state=${state}&country=usa&key=9eed15cc-6979-4c6b-8383-aebbdcd7a667`;
 		axios.get(url)
 		.then((res) => {
-			const {data: {data}} = res;
+			let {data: {data}} = res;
+			data = data.map((d: any) => d.city);
 			setCities(data);
 			setStateSelected(state);
 		}).catch((err) => console.warn(err));
 	}
 	
 	const getWeatherPollutionByCity = (city: string): void => {
-		const url = `https://api.airvisual.com/v2/city?city=${city}&state=${stateSelected}&country=USA&key=9eed15cc-6979-4c6b-8383-aebbdcd7a667`;
+		const url = `https://api.airvisual.com/v2/city?city=${city}&state=${stateSelected}&country=usa&key=9eed15cc-6979-4c6b-8383-aebbdcd7a667`;
 		axios.get(url)
 		.then((res) => {
 			const {data: {data}} = res;
 			setWeatherPollutionByCity(data);
+			setCitySelected(city);
 		}).catch((err) => console.warn(err));
 	}
 
@@ -55,10 +59,10 @@ const Container = (props: ContainerProps) => {
 		return <Loader/>
 	}
 
-	return( 
+	return(
 		<div className={root}>
-			<States states={states} getCitiesByState={getCitiesByState} />,
-			<Cities cities={cities} getWeatherPollutionByCity={getWeatherPollutionByCity}/>
+			<States states={states} stateSelected={stateSelected}  getCitiesByState={getCitiesByState} />,
+			<Cities cities={cities} citySelected={citySelected} getWeatherPollutionByCity={getWeatherPollutionByCity}/>
 			<WeatherPollutionByCity detail={weatherPollutionByCity} />
 		</div>
 		)

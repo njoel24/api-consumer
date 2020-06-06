@@ -3,10 +3,14 @@
 .root {
 	display: flex;
 	flex-direction: column;
-	width: 10%;
+	width: 25vw;
 }
 
 .root a {
 	cursor: pointer;
 	margin: 5px 0;
+}
+
+.selected {
+	font-weight: bold;
 }
