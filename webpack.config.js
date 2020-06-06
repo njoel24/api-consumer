@@ -1,11 +1,11 @@
-const HtmlWebPackPlugin = require( 'html-webpack-plugin' );
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
 	mode: "production",
 	devtool: "source-map",
 	resolve: {
-		extensions: [".ts", ".tsx", ".js", ".css"]
+		extensions: [".ts", ".tsx", ".js", ".css", ".svg"]
 	},
 	module: {
 		rules: [
@@ -17,6 +17,14 @@ module.exports = {
 						loader: "ts-loader"
 					}
 				]
+			},
+			{
+				test: /\.(png|jpe?g|gif|svg)$/i,
+				use: [
+				  {
+					loader: 'file-loader',
+				  },
+				],
 			},
 			{
 				enforce: "pre",

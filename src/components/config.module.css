@@ -1,3 +1,10 @@
 :root {
 	--appWidth: 100%;
+	--squareWidth: 49vw;
+	--primaryColor: rgb(242, 184, 128);
+	--secondaryColor: rgb(255, 244, 236);
+	--tertiaryColor: rgb(231, 207, 188);
+	--squareHeight: 80vh;
+	--trBorderTopBottom: 2.45vw solid var(--primaryColor);
+	--trBorderLeftRight: 24.5vw solid transparent;
 }

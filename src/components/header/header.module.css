@@ -1,9 +1,9 @@
 @import '../config.module.css';
 
 .root {
-	background-color: yellow;
+	background-color: var(--tertiaryColor);
 }
 
-.root > h1 {
-	padding: 5px;
+.root > img {
+	padding: 10px;
 }

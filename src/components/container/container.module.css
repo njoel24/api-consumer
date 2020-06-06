@@ -3,12 +3,47 @@
 .root {
 	display: flex;
 	flex-direction: row;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 14px;
 	width: var(--appWidth);
-	max-width: 100%;
-	margin: auto;
-	min-height: 80vh;
-	padding: 10px;
+	min-height: var(--squareHeight);
+	background-color: transparent;
 }
 
+.trtopright {
+	width: 0;
+	height: 0;
+	border-top: var(--trBorderTopBottom);
+	border-left: var(--trBorderLeftRight);
+}
+
+.trtopleft {
+	width: 0;
+	height: 0;
+	border-top: var(--trBorderTopBottom);
+	border-right: var(--trBorderLeftRight);
+}
+
+.trbottomright {
+	width: 0;
+	height: 0;
+	border-bottom: var(--trBorderTopBottom);
+	border-right: var(--trBorderLeftRight);
+}
+
+.trbottomleft {
+	width: 0;
+	height: 0;
+	border-bottom: var(--trBorderTopBottom);
+	border-left: var(--trBorderLeftRight);
+}
+
+.square {
+	display: flex;
+	background-color: var(--primaryColor);
+	clear:both;
+	height:var(--squareHeight);
+	width: var(--squareWidth);
+}
+
+.align div {
+	float: left;
+}

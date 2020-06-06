@@ -10,7 +10,7 @@ import css from "./container.module.css";
 export interface ContainerProps { css: any}
 
 const Container = (props: ContainerProps) => {
-	const {css: {root}} = props;
+	const {css: {root, trbottomleft, trbottomright, trtopleft, trtopright, align, square}} = props;
 	const [states, setStates] = useState([]);
 	const [cities, setCities] = useState([]);
 	const [stateSelected, setStateSelected] = useState("");
@@ -61,11 +61,37 @@ const Container = (props: ContainerProps) => {
 
 	return(
 		<div className={root}>
-			<States states={states} stateSelected={stateSelected}  getCitiesByState={getCitiesByState} />,
-			<Cities cities={cities} citySelected={citySelected} getWeatherPollutionByCity={getWeatherPollutionByCity}/>
-			<WeatherPollutionByCity detail={weatherPollutionByCity} />
+			<div>
+				<div className={align}>
+					<div className={trbottomleft}></div>
+					<div className={trbottomright}></div>
+				</div>
+				<div className={square}>
+					<States states={states} stateSelected={stateSelected}  getCitiesByState={getCitiesByState} />,
+					<Cities cities={cities} citySelected={citySelected} getWeatherPollutionByCity={getWeatherPollutionByCity}/>
+				</div>
+				<div className={align}>
+					<div className={trtopleft}></div>
+					<div className={trtopright}></div>
+				</div>
+			</div>
+			<div>
+				<div>
+					<div className={align}>
+						<div className={trbottomleft}></div>
+						<div className={trbottomright}></div>
+					</div>
+					<div className={square}>
+						<WeatherPollutionByCity detail={weatherPollutionByCity} />
+					</div>
+					<div className={align}>
+						<div className={trtopleft}></div>
+						<div className={trtopright}></div>
+					</div>
+				</div>
+			</div>
 		</div>
-		)
+	)
 };
 
 export default styleable(css)(Container);

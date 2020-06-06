@@ -3,8 +3,9 @@
 .root {
 	display: flex;
 	flex-direction: column;
-	width: 50vw;
-	padding: 5px;
+	width: 25vw;
+	padding: 20px;
+	border-right: 1px solid var(--tertiaryColor);
 }
 
 .root a {
