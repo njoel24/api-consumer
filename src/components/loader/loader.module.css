@@ -1,6 +1,8 @@
+@import "../../theme/default.module.css";
+
 .root {
-	width: 100%;
-	min-height: 80vh;
+	width: var(--appWidth);
+	min-height: var(--containerHeight);
 	background-color: transparent;
 	position: absolute;
 	z-index: 3;
@@ -8,7 +10,7 @@
 .root .overlay,
 .root .overlay::before,
 .root .overlay::after {
-	background: rgb(95, 95, 95);
+	background: var(--thirdColor);
 	width: 1em;
 	animation: loader 1s infinite ease-in-out;
 }
@@ -42,12 +44,12 @@
 	0%,
 	80%,
 	100% {
-		box-shadow: 0 0 rgb(95, 95, 95);
+		box-shadow: 0 0 var(--thirdColor);
 		height: 4em;
 	}
 
 	40% {
-		box-shadow: 0 -2em rgb(95, 95, 95);
+		box-shadow: 0 -2em var(--thirdColor);
 		height: 5em;
 	}
 }

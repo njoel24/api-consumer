@@ -1,10 +1,10 @@
-@import '../config.module.css';
+@import '../../theme/default.module.css';
 
 .root {
 	display: flex;
 	flex-direction: row;
 	width: var(--appWidth);
-	min-height: var(--squareHeight);
+	min-height: var(--containerHeight);
 	background-color: transparent;
 }
 
@@ -40,7 +40,7 @@
 	display: flex;
 	background-color: var(--primaryColor);
 	clear:both;
-	height:var(--squareHeight);
+	height:var(--containerHeight);
 	width: var(--squareWidth);
 }
 

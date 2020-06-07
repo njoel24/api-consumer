@@ -34,4 +34,4 @@ export interface GeoLocation {
 }
 
 export enum GeoLocationType { Point };
-export interface WeatherPollutionByCityProps { detail: CityDetails, css: any};
+export interface WeatherPollutionByCityProps { detail: CityDetails, css: Record<string, any>};

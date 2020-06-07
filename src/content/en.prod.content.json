@@ -1,0 +1,9 @@
+{
+	"footerDescription": "Data Provided by IQAir",
+	"pollutionTitle": "Pollution",
+	"weatherTitle": "Weather",
+	"cityTitle": "City",
+	"stateTitle": "State",
+	"countryTitle": "Country",
+	"fetchErrorDescription": "Something went wrong. Most probably data is not availbale for the country selected"
+}

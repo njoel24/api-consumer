@@ -1,11 +1,11 @@
-@import '../config.module.css';
+@import '../../theme/default.module.css';
 
 .root {
 	display: flex;
 	flex-direction: column;
-	width: 25vw;
+	width: calc(var(--appWidth)/4);
 	padding: 20px;
-	border-right: 1px solid var(--tertiaryColor);
+	border-right: 1px solid var(--thirdColor);
 }
 
 .root a {

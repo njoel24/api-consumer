@@ -6,7 +6,7 @@ module.exports = {
 	mode: "production",
 	devtool: "source-map",
 	resolve: {
-		extensions: [".ts", ".tsx", ".js", ".css", ".svg"]
+		extensions: [".ts", ".tsx", ".js", ".css", ".svg", ".json"]
 	},
 	entry: {
 		main: "./src/index.tsx",

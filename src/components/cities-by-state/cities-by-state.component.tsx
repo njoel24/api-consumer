@@ -2,7 +2,7 @@ import * as React from "react";
 import styleable from "react-styleable";
 import css from "./cities-by-state.module.css";
 
-export interface CitiesByStateProps { cities: any[], citySelected: string, getWeatherPollutionByCity: (country: string) => void, css: any };
+export interface CitiesByStateProps { cities: string[], citySelected: string, getWeatherPollutionByCity: (country: string) => void, css: Record<string, any> };
 
 const CitiesByState = (props: CitiesByStateProps) => {
 	const {cities, css: {root, selected}, getWeatherPollutionByCity, citySelected} = props;

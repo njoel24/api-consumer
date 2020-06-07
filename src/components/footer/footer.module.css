@@ -1,7 +1,7 @@
-@import '../config.module.css';
+@import '../../theme/default.module.css';
 
 .root {
-	background-color: var(--tertiaryColor);
+	background-color: var(--thirdColor);
 }
 
 .root > h1 {

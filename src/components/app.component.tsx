@@ -5,7 +5,7 @@ import Footer from "./footer/footer.component";
 import Container from "./container/container.component";
 import css from "./app.module.css";
 
-export interface AppProps { css: any };
+export interface AppProps { css: Record<string, any> };
 
 const App = (props: AppProps) => {
 	const {css: {root}} = props;

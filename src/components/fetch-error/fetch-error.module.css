@@ -1,0 +1,14 @@
+@import '../../theme/default.module.css';
+
+.root {
+	width: var(--appWidth);
+	height: 50px;
+	text-align: center;
+	position: absolute;
+	background-color: var(--forthColor);
+	z-index: 1;
+}
+
+.root > h1 {
+	padding: 5px;
+}
