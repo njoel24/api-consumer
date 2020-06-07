@@ -1,7 +1,7 @@
-import React, {useEffect, useState, Props} from "react";
+import React, {useEffect, useState} from "react";
 import styleable from "react-styleable";
 import axios, {CancelToken} from "axios";
-import States from "../states-by-country/states-by-country.component.";
+import States from "../states-by-country/states-by-country.component";
 import Cities from "../cities-by-state/cities-by-state.component";
 import FetchError from "../fetch-error/fetch-error.component";
 import WeatherPollutionByCity from "../weather-pollution-by-city/weather-pollution-by-city.component";
@@ -11,7 +11,10 @@ import config from "../../config/prod.config.json";
 
 export interface ContainerProps { css: Record<string, any>}
 
-const Container = (props: ContainerProps) => {
+const getLoader = (isDataUpdating: boolean) => isDataUpdating ? <Loader/> : null;
+const getFetchError = (fetchError: any) => fetchError ? <FetchError/> : null;
+
+const Container = React.memo((props: ContainerProps) => {
 	const {css: {root, trbottomleft, trbottomright, trtopleft, trtopright, align, square}} = props;
 	const {apiBaseUrl, defaultCountry, apiKey} = config;
 	const [states, setStates] = useState([]);
@@ -24,11 +27,12 @@ const Container = (props: ContainerProps) => {
 	const dataRequested = true;
 
 	useEffect(() => {
-		const ajaxRequest = axios.CancelToken.source();
-		const statesByCountryUrl = `${apiBaseUrl}states?country=${defaultCountry}&key=${apiKey}`;
+
 		setIsDataUpdating(true);
 		setFetchError(null);
-		axios.get(statesByCountryUrl, { cancelToken: ajaxRequest.token })
+
+		const ajaxRequest = axios.CancelToken.source();
+		axios.get(`${apiBaseUrl}states?country=${defaultCountry}&key=${apiKey}`, { cancelToken: ajaxRequest.token })
 		.then((res) => {
 			let {data: {data}} = res;
 			data = data.map((d: Record<"state", string>) => d.state);
@@ -43,10 +47,11 @@ const Container = (props: ContainerProps) => {
 	}, [dataRequested])
 
 	const getCitiesByState = (state: string): void => {
-		const url = `${apiBaseUrl}cities?state=${state}&country=${defaultCountry}&key=${apiKey}`;
+
 		setIsDataUpdating(true);
 		setFetchError(null);
-		axios.get(url)
+
+		axios.get(`${apiBaseUrl}cities?state=${state}&country=${defaultCountry}&key=${apiKey}`)
 		.then((res) => {
 			let {data: {data}} = res;
 			data = data.map((d: Record<"city", string>) => d.city);
@@ -58,10 +63,11 @@ const Container = (props: ContainerProps) => {
 	}
 
 	const getWeatherPollutionByCity = (city: string): void => {
-		const url = `${apiBaseUrl}city?city=${city}&state=${stateSelected}&country=${defaultCountry}&key=${apiKey}`;
+
 		setIsDataUpdating(true);
 		setFetchError(null);
-		axios.get(url)
+
+		axios.get(`${apiBaseUrl}city?city=${city}&state=${stateSelected}&country=${defaultCountry}&key=${apiKey}`)
 		.then((res) => {
 			const {data: {data}} = res;
 			setWeatherPollutionByCity(data);
@@ -72,13 +78,10 @@ const Container = (props: ContainerProps) => {
 		.finally(() => setIsDataUpdating(false));
 	}
 
-	const getLoader = () => isDataUpdating ? <Loader/> : null;
-	const getFetchError = () => fetchError ? <FetchError/> : null;
-
 	return(
 		<div>
-			{getLoader()}
-			{getFetchError()}
+			{getLoader(isDataUpdating)}
+			{getFetchError(fetchError)}
 			<div className={root}>
 				<div>
 					<div className={align}>
@@ -86,7 +89,7 @@ const Container = (props: ContainerProps) => {
 						<div className={trbottomright}></div>
 					</div>
 					<div className={square}>
-						<States states={states} stateSelected={stateSelected}  getCitiesByState={getCitiesByState} />,
+						<States states={states} stateSelected={stateSelected} getCitiesByState={getCitiesByState} />
 						<Cities cities={cities} citySelected={citySelected} getWeatherPollutionByCity={getWeatherPollutionByCity}/>
 					</div>
 					<div className={align}>
@@ -112,6 +115,6 @@ const Container = (props: ContainerProps) => {
 			</div>
 		</div>
 	)
-};
+});
 
 export default styleable(css)(Container);

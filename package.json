@@ -26,7 +26,8 @@
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
 		"react-styleable": "^3.3.2",
-		"react-test-renderer": "^16.13.1"
+		"react-test-renderer": "^16.13.1",
+		"enzyme": "^3.11.0"
 	},
 	"devDependencies": {
 		"@types/enzyme": "^3.10.5",
@@ -35,7 +36,6 @@
 		"@types/react-dom": "^16.9.8",
 		"@types/react-test-renderer": "^16.9.2",
 		"css-loader": "^3.5.3",
-		"enzyme": "^3.11.0",
 		"enzyme-adapter-react-16": "^1.15.2",
 		"file-loader": "^6.0.0",
 		"html-webpack-plugin": "^4.3.0",
