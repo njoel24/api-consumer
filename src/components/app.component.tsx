@@ -2,7 +2,7 @@ import React from "react";
 import styleable from "react-styleable";
 import Header from "./header/header.component";
 import Footer from "./footer/footer.component";
-import Container from "./container/container.component.";
+import Container from "./container/container.component";
 import css from "./app.module.css";
 
 export interface AppProps { css: any };
