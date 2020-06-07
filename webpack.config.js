@@ -6,7 +6,7 @@ module.exports = {
 	mode: "production",
 	devtool: "source-map",
 	resolve: {
-		extensions: [".ts", ".tsx", ".js", ".css", ".svg", ".json"]
+		extensions: [".ts", ".tsx", ".js", ".css", ".svg", ".json", "*.eot", "*.woff"]
 	},
 	entry: {
 		main: "./src/index.tsx",
@@ -53,7 +53,7 @@ module.exports = {
 				]
 			},
 			{
-				test: /\.(png|jpe?g|gif|svg)$/i,
+				test: /\.(png|jpe?g|gif|svg|eot|woff)$/i,
 				use: [
 				  {
 					loader: 'file-loader',
@@ -71,7 +71,9 @@ module.exports = {
 					{
 						loader: 'css-loader',
 						options: {
-							modules: true,
+							modules: {
+								localIdentName: '[name]__[local]--[hash:base64:5]'
+							},
 							importLoaders: 1
 						}
 					}, 

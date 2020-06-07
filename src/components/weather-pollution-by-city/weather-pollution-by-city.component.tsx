@@ -16,14 +16,14 @@ const WeatherPollutionByCity = (props: WeatherPollutionByCityProps) => {
 		<div>{countryTitle}: <strong>{country}</strong></div>
 		<div>{cityTitle}: <strong>{city}</strong></div>
 		<div>
-			<h1>{pollutionTitle}</h1>
+			<h4>{pollutionTitle}</h4>
 			<div>aqicn: {aqicn}</div>
 			<div>aqius: {aqius}</div>
 			<div>maincn: {maincn}</div>
 			<div>mainus: {mainus}</div>
 		</div>
 		<div>
-			<h1>{weatherTitle}</h1>
+			<h4>{weatherTitle}</h4>
 			<div>hu: {hu}</div>
 			<div>ic: {ic}</div>
 			<div>pr: {pr}</div>

@@ -6,6 +6,14 @@
 	width: calc(var(--appWidth)/4);
 	padding: 20px;
 	border-right: 1px solid var(--thirdColor);
+	overflow: auto;
+}
+
+@media screen and (max-width: 360px) {
+	.root {
+		width: calc(var(--appWidth)/2);
+		padding: 5px;
+	}
 }
 
 .root a {

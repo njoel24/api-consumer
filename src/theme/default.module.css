@@ -1,5 +1,6 @@
 :root {
-	--fontFamily: "Arial, Helvetica, sans-serif";
+	--fontFamily: 'Arial', serif;
+	--fontWeight: 500;
 	--fontSize: 14px;
 	--appWidth: 100vw;
 	--squareWidth: 49vw;
