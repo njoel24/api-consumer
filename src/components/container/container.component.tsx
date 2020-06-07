@@ -15,18 +15,20 @@ const Container = (props: ContainerProps) => {
 	const [cities, setCities] = useState([]);
 	const [stateSelected, setStateSelected] = useState("");
 	const [citySelected, setCitySelected] = useState("");
+	const [isDataUpdating, setIsDataUpdating] = useState(false);
 	const [weatherPollutionByCity, setWeatherPollutionByCity] = useState(null);
 	const dataRequested = true;
 
 	useEffect(() => {
 		const ajaxRequest = axios.CancelToken.source();
 		const statesByCountryUrl = "https://api.airvisual.com/v2/states?country=usa&key=9eed15cc-6979-4c6b-8383-aebbdcd7a667";
-
+		setIsDataUpdating(true);
 		axios.get(statesByCountryUrl, { cancelToken: ajaxRequest.token })
 		.then((res) => {
 			let {data: {data}} = res;
 			data = data.map((d: any) => d.state);
 			setStates(data);
+			setIsDataUpdating(false);
 		}).catch((err) => { throw new Error(err) });
 
 		return () => {
@@ -36,31 +38,34 @@ const Container = (props: ContainerProps) => {
 
 	const getCitiesByState = (state: string): void => {
 		const url = `https://api.airvisual.com/v2/cities?state=${state}&country=usa&key=9eed15cc-6979-4c6b-8383-aebbdcd7a667`;
+		setIsDataUpdating(true);
 		axios.get(url)
 		.then((res) => {
 			let {data: {data}} = res;
 			data = data.map((d: any) => d.city);
 			setCities(data);
 			setStateSelected(state);
+			setIsDataUpdating(false);
 		}).catch((err) => { throw new Error(err) });
 	}
 
 	const getWeatherPollutionByCity = (city: string): void => {
 		const url = `https://api.airvisual.com/v2/city?city=${city}&state=${stateSelected}&country=usa&key=9eed15cc-6979-4c6b-8383-aebbdcd7a667`;
+		setIsDataUpdating(true);
 		axios.get(url)
 		.then((res) => {
 			const {data: {data}} = res;
 			setWeatherPollutionByCity(data);
 			setCitySelected(city);
+			setIsDataUpdating(false);
 		}).catch((err) => { throw new Error(err) });
 	}
 
-	if (states.length === 0) {
-		return <Loader/>
-	}
+	const getLoader = () => isDataUpdating ? <Loader/> : null;
 
 	return(
 		<div className={root}>
+			{getLoader()}
 			<div>
 				<div className={align}>
 					<div className={trbottomleft}></div>

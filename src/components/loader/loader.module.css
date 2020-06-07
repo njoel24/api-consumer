@@ -1,7 +1,8 @@
 .root {
 	width: 100%;
 	min-height: 80vh;
-	background-color: rgba(255, 255, 255, 0.7);
+	background-color: transparent;
+	position: absolute;
 	z-index: 3;
 }
 .root .overlay,
