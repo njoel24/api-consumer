@@ -5,10 +5,10 @@ import css from "./weather-pollution-by-city.module.css";
 
 const WeatherPollutionByCity = (props: WeatherPollutionByCityProps) => {
 	const {detail, css: {root}} = props;
-	if (!detail) {
+	if (detail === null) {
 		return <div className={root}></div>;
 	}
-	const {state, city, country, current: {pollution: {aqicn,aqius,maincn,mainus}, weather: {hu,ic,pr,tp,ts,wd,ws}}, location: {coordinates, type}} = detail;
+	const {state, city, country, current: {pollution: {aqicn, aqius, maincn, mainus}, weather: {hu, ic, pr, tp, ts, wd, ws}}, location: {coordinates, type}} = detail;
 	return <div className={root}>
 		<div>State: <strong>{state}</strong></div>
 		<div>Country: <strong>{country}</strong></div>

@@ -19,16 +19,16 @@ const Container = (props: ContainerProps) => {
 	const dataRequested = true;
 
 	useEffect(() => {
-		const ajaxRequest = axios.CancelToken.source();  
+		const ajaxRequest = axios.CancelToken.source();
 		const statesByCountryUrl = "https://api.airvisual.com/v2/states?country=usa&key=9eed15cc-6979-4c6b-8383-aebbdcd7a667";
-	
+
 		axios.get(statesByCountryUrl, { cancelToken: ajaxRequest.token })
 		.then((res) => {
 			let {data: {data}} = res;
 			data = data.map((d: any) => d.state);
 			setStates(data);
-		}).catch((err) => console.warn(err));
-	
+		}).catch((err) => { throw new Error(err) });
+
 		return () => {
 			ajaxRequest.cancel()
 		}
@@ -42,9 +42,9 @@ const Container = (props: ContainerProps) => {
 			data = data.map((d: any) => d.city);
 			setCities(data);
 			setStateSelected(state);
-		}).catch((err) => console.warn(err));
+		}).catch((err) => { throw new Error(err) });
 	}
-	
+
 	const getWeatherPollutionByCity = (city: string): void => {
 		const url = `https://api.airvisual.com/v2/city?city=${city}&state=${stateSelected}&country=usa&key=9eed15cc-6979-4c6b-8383-aebbdcd7a667`;
 		axios.get(url)
@@ -52,10 +52,10 @@ const Container = (props: ContainerProps) => {
 			const {data: {data}} = res;
 			setWeatherPollutionByCity(data);
 			setCitySelected(city);
-		}).catch((err) => console.warn(err));
+		}).catch((err) => { throw new Error(err) });
 	}
 
-	if (!states.length) {
+	if (states.length === 0) {
 		return <Loader/>
 	}
 

@@ -6,7 +6,7 @@ import Container from './container.component';
 describe('Container', () => {
 	test('snapshot renders', () => {
 		const component = renderer.create(<Container/>);
-		let tree = component.toJSON();
+		const tree = component.toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 });

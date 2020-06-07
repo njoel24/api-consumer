@@ -9,7 +9,7 @@ const Header = (props: any) => {
 		<div className={root}>
 			<img src={logo}/>
 		</div>
-	) 
+	)
 };
 
 export default styleable(css)(Header);

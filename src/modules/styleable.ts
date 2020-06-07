@@ -1,4 +1,4 @@
 declare module 'react-styleable' {
-	var styleable: any;
+	const styleable: any;
 	export = styleable;
 }
