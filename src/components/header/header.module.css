@@ -1,7 +1,9 @@
 @import '../../theme/default.module.css';
 
 .root {
+	display: flex;
 	background-color: var(--thirdColor);
+	width: var(--appWidth);
 }
 
 .root > img {

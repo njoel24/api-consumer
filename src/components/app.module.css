@@ -1,7 +1,8 @@
 @import "../theme/default.module.css";
 
 .root {
-	min-height: 100vh;
+	width: var(--appWidth);
+	min-height: var(--appHeight);
 	background-color:var(--thirdColor);
 	font-family: var(--fontFamily);
 	font-size: var(--fontSize);

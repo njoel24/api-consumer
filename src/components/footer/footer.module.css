@@ -1,9 +1,11 @@
 @import '../../theme/default.module.css';
 
 .root {
+	display: flex;
 	background-color: var(--thirdColor);
+	width: var(--appWidth);
 }
 
-.root > h1 {
+.root > h4 {
 	padding: 5px;
 }
