@@ -2,14 +2,14 @@
 	--fontFamily: 'Arial', serif;
 	--fontWeight: 500;
 	--fontSize: 14px;
-	--appWidth: 100vw;
+	--appWidth: 98vw;
 	--appHeight: 100vh;
-	--squareWidth: 50vw;
+	--squareWidth: 49vw;
 	--containerHeight: 80vh;
 	--primaryColor: rgb(242, 184, 128);
 	--secondaryColor: rgb(255, 244, 236);
 	--thirdColor: rgb(231, 207, 188);
 	--forthColor: rgb(150, 107, 157);
-	--trBorderTopBottom: 2.5vw solid var(--primaryColor);
-	--trBorderLeftRight: 25vw solid transparent;
+	--trBorderTopBottom: 2.45vw solid var(--primaryColor);
+	--trBorderLeftRight: 24.5vw solid transparent;
 }

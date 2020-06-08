@@ -9,6 +9,10 @@
 	font-weight: var(--fontWeight);
 }
 
+* {
+	box-sizing: border-box;
+}
+
 *::-webkit-scrollbar {
 	width: 12px;
 }
