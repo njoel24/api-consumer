@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container renders component and compare with snapshot 1`] = `
+<div>
+  <div>
+    <div>
+      <div>
+        <div />
+        <div />
+      </div>
+      <div>
+        <div />
+        <div />
+      </div>
+      <div>
+        <div />
+        <div />
+      </div>
+    </div>
+    <div>
+      <div>
+        <div>
+          <div />
+          <div />
+        </div>
+        <div>
+          <div />
+        </div>
+        <div>
+          <div />
+          <div />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`City by state renders component and compare with snapshot 1`] = `
+<div>
+  <a
+    className=""
+    onClick={[Function]}
+  >
+    Milan
+  </a>
+  <a
+    className=""
+    onClick={[Function]}
+  >
+    Turin
+  </a>
+  <a
+    className=""
+    onClick={[Function]}
+  >
+    Naples
+  </a>
+</div>
+`;

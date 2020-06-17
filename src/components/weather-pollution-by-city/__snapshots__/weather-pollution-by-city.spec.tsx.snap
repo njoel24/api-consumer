@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`States by country renders component and compare with snapshot 1`] = `
+<div>
+  <div>
+    State
+    : 
+    <strong>
+      Lombardia
+    </strong>
+  </div>
+  <div>
+    Country
+    : 
+    <strong>
+      Italy
+    </strong>
+  </div>
+  <div>
+    City
+    : 
+    <strong>
+      Milan
+    </strong>
+  </div>
+  <div>
+    <h4>
+      Pollution
+    </h4>
+    <div>
+      aqicn: 
+    </div>
+    <div>
+      aqius: 
+    </div>
+    <div>
+      maincn: 
+    </div>
+    <div>
+      mainus: 
+    </div>
+  </div>
+  <div>
+    <h4>
+      Weather
+    </h4>
+    <div>
+      hu: 
+    </div>
+    <div>
+      ic: 
+    </div>
+    <div>
+      pr: 
+    </div>
+    <div>
+      tp: 
+    </div>
+    <div>
+      ts: 
+    </div>
+    <div>
+      wd: 
+    </div>
+    <div>
+      ws: 
+    </div>
+  </div>
+</div>
+`;
