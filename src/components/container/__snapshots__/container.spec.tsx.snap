@@ -2,33 +2,69 @@
 
 exports[`Container renders component and compare with snapshot 1`] = `
 <div>
-  <div>
+  <div
+    className="root"
+  >
     <div>
-      <div>
-        <div />
-        <div />
+      <div
+        className="align"
+      >
+        <div
+          className="trbottomleft"
+        />
+        <div
+          className="trbottomright"
+        />
       </div>
-      <div>
-        <div />
-        <div />
+      <div
+        className="square"
+      >
+        <div
+          className="root"
+        />
+        <div
+          className="root"
+        />
       </div>
-      <div>
-        <div />
-        <div />
+      <div
+        className="align"
+      >
+        <div
+          className="trtopleft"
+        />
+        <div
+          className="trtopright"
+        />
       </div>
     </div>
     <div>
       <div>
-        <div>
-          <div />
-          <div />
+        <div
+          className="align"
+        >
+          <div
+            className="trbottomleft"
+          />
+          <div
+            className="trbottomright"
+          />
         </div>
-        <div>
-          <div />
+        <div
+          className="square"
+        >
+          <div
+            className="root"
+          />
         </div>
-        <div>
-          <div />
-          <div />
+        <div
+          className="align"
+        >
+          <div
+            className="trtopleft"
+          />
+          <div
+            className="trtopright"
+          />
         </div>
       </div>
     </div>

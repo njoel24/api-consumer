@@ -1,11 +1,13 @@
 import * as React from "react";
-import styleable from "react-styleable";
+/* tslint:disable no-submodule-imports */
+import withStyles from "isomorphic-style-loader/withStyles";
 import css from "./cities-by-state.module.css";
 
-export interface CitiesByStateProps { cities: string[], citySelected: string, getWeatherPollutionByCity: (country: string) => void, css: Record<string, any> };
+export interface CitiesByStateProps { cities: string[], citySelected: string, getWeatherPollutionByCity: (country: string) => void};
 
 const CitiesByState = (props: CitiesByStateProps) => {
-	const {cities, css: {root, selected}, getWeatherPollutionByCity, citySelected} = props;
+	const {root, selected} = css;
+	const {cities, getWeatherPollutionByCity, citySelected} = props;
 	const listItems = cities.map((city) =>
 		<a key={city} className={city === citySelected ? selected : ""} onClick={() => getWeatherPollutionByCity(city)}>
 			{city}
@@ -14,4 +16,4 @@ const CitiesByState = (props: CitiesByStateProps) => {
 	return <div className={root}>{listItems}</div>
 };
 
-export default styleable(css)(CitiesByState);
+export default withStyles(css)(CitiesByState);

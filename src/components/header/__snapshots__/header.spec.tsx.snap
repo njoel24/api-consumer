@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header renders component and compare with snapshot 1`] = `
-<div>
+<div
+  className="root"
+>
   <img
-    src="logo.svg"
+    src="test-file-stub"
   />
 </div>
 `;

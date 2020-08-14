@@ -1,9 +1,10 @@
 import * as React from "react";
-import styleable from "react-styleable";
+/* tslint:disable no-submodule-imports */
+import withStyles from "isomorphic-style-loader/withStyles";
 import css from "./loader.module.css";
 
-const Loader = (props: Record<string, any>) => {
-	return <div className={props.css.root}><div className={props.css.overlay}></div></div>
+const Loader = () => {
+	return <div className={css.root}><div className={css.overlay}></div></div>
 };
 
-export default styleable(css)(Loader);
+export default withStyles(css)(Loader);

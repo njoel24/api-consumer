@@ -1,10 +1,11 @@
 import * as React from "react";
-import styleable from "react-styleable";
+/* tslint:disable no-submodule-imports */
+import withStyles from "isomorphic-style-loader/withStyles";
 import css from "./header.module.css";
 import logo from "../../assets/logo.svg";
 
-const Header = (props: Record<string, any>) => {
-	const {css: {root}} = props;
+const Header = () => {
+	const {root} = css;
 	return (
 		<div className={root}>
 			<img src={logo}/>
@@ -12,4 +13,4 @@ const Header = (props: Record<string, any>) => {
 	)
 };
 
-export default styleable(css)(Header);
+export default withStyles(css)(Header);

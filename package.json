@@ -4,10 +4,14 @@
 	"description": "simple reactjs application that reads data from public api and display it",
 	"main": "src/index.tsx",
 	"scripts": {
-		"start": "webpack-dev-server --progress",
-		"build": "webpack",
+		"start-client": "webpack-dev-server --client-ssr --progress ",
+		"start-server": "nodemon ./dist/server.js",
+		"build-server": "webpack --server-ssr",
+		"build-client": "webpack --client-ssr",
+		"build-all-and-start-server": "npm run build-server && npm run build-client && npm run start-server",
 		"test": "jest",
 		"test::watch": "jest --watch",
+		"test::update-snapshots": "jest --u",
 		"lint": "tslint --format stylish --project tsconfig.json"
 	},
 	"husky": {
@@ -24,14 +28,16 @@
 	"license": "ISC",
 	"dependencies": {
 		"axios": "^0.19.2",
+		"enzyme": "^3.11.0",
+		"express": "^4.17.1",
+		"isomorphic-style-loader": "^5.1.0",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
-		"react-styleable": "^3.3.2",
-		"react-test-renderer": "^16.13.1",
-		"enzyme": "^3.11.0"
+		"react-test-renderer": "^16.13.1"
 	},
 	"devDependencies": {
 		"@types/enzyme": "^3.10.5",
+		"@types/express": "^4.17.7",
 		"@types/jest": "^25.2.3",
 		"@types/react": "^16.9.35",
 		"@types/react-dom": "^16.9.8",
@@ -45,6 +51,7 @@
 		"jest": "^26.0.1",
 		"jest-cli": "^26.0.1",
 		"jest-css-modules": "^2.1.0",
+		"nodemon": "^2.0.4",
 		"postcss-import": "^12.0.1",
 		"postcss-loader": "^3.0.0",
 		"postcss-preset-env": "^6.7.0",
@@ -56,6 +63,7 @@
 		"typescript": "^3.9.3",
 		"webpack": "^4.43.0",
 		"webpack-cli": "^3.3.11",
-		"webpack-dev-server": "^3.11.0"
+		"webpack-dev-server": "^3.11.0",
+		"webpack-node-externals": "^2.5.1"
 	}
 }

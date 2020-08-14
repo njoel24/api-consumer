@@ -1,6 +1,8 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const nodeExternals = require('webpack-node-externals');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
+const platform = process.argv[2].substring(2);
 
 module.exports = {
 	mode: "production",
@@ -8,22 +10,23 @@ module.exports = {
 	resolve: {
 		extensions: [".ts", ".tsx", ".js", ".css", ".svg", ".json", "*.eot", "*.woff"]
 	},
-	entry: {
-		main: "./src/index.tsx",
+	entry:platform === 'server-ssr' ? { server: "./src/server/index.tsx" } : {
+		main: "./src/client-ssr/index.tsx",
 		vendors: [
 			"axios",
 			"react",
 			"react-dom",
-			"react-styleable",
 			"react-test-renderer"
 		]
 	},
+	target: platform === 'server-ssr' ? "node": undefined,
+	externals: platform === 'server-ssr' ? [nodeExternals()] : [],
 	output: {
 		path: path.join(__dirname, './dist'),
-		filename: '[name].js',
+		filename: platform === 'server-ssr' ? 'server.js' : '[name].js',
 		publicPath: '/',
 	},
-	optimization: {
+	optimization: platform === 'server-ssr' ? {} : {
 		usedExports: true,
 		minimize: true,
 		minimizer: [
@@ -67,7 +70,7 @@ module.exports = {
 			},
 			{
 				test: /\.module\.css$/,
-				loader: ['style-loader',
+				loader: [platform === "server-ssr" ? 'isomorphic-style-loader': 'style-loader',
 					{
 						loader: 'css-loader',
 						options: {

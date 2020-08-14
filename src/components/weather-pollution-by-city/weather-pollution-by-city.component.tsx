@@ -1,11 +1,13 @@
 import * as React from "react";
-import styleable from "react-styleable";
+/* tslint:disable no-submodule-imports */
+import withStyles from "isomorphic-style-loader/withStyles";
 import { WeatherPollutionByCityProps } from "./weather-pollution-by-city.model";
 import css from "./weather-pollution-by-city.module.css";
-import content from "../../content/en.prod.content.json";
+import content from "../../locale/en.prod.locale.json";
 
 const WeatherPollutionByCity = (props: WeatherPollutionByCityProps) => {
-	const {detail, css: {root}} = props;
+	const {detail} = props;
+	const {root} = css;
 	const {pollutionTitle, weatherTitle, stateTitle, countryTitle, cityTitle} = content;
 	if (detail === null) {
 		return <div className={root}></div>;
@@ -35,4 +37,4 @@ const WeatherPollutionByCity = (props: WeatherPollutionByCityProps) => {
 	</div>
 };
 
-export default styleable(css)(WeatherPollutionByCity);
+export default withStyles(css)(WeatherPollutionByCity);

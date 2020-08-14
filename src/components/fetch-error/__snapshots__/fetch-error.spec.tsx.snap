@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Fetch Error renders component and compare with snapshot 1`] = `
-<div>
+<div
+  className="root"
+>
   <h4>
     Something went wrong. Most probably data is not availbale for the country selected
   </h4>

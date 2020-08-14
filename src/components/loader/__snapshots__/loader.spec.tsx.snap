@@ -1,7 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Loader renders component and compare with snapshot 1`] = `
-<div>
-  <div />
+<div
+  className="root"
+>
+  <div
+    className="overlay"
+  />
 </div>
 `;

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
-import styleable from "react-styleable";
-import axios, {CancelToken} from "axios";
+/* tslint:disable no-submodule-imports */
+import withStyles from "isomorphic-style-loader/withStyles";
+import axios from "axios";
 import States from "../states-by-country/states-by-country.component";
 import Cities from "../cities-by-state/cities-by-state.component";
 import FetchError from "../fetch-error/fetch-error.component";
@@ -9,13 +10,11 @@ import Loader from "../loader/loader.component";
 import css from "./container.module.css";
 import config from "../../config/prod.config.json";
 
-export interface ContainerProps { css: Record<string, any>}
-
 const getLoader = (isDataUpdating: boolean) => isDataUpdating ? <Loader/> : null;
 const getFetchError = (fetchError: any) => fetchError ? <FetchError/> : null;
 
-const Container = React.memo((props: ContainerProps) => {
-	const {css: {root, trbottomleft, trbottomright, trtopleft, trtopright, align, square}} = props;
+const Container = React.memo(() => {
+	const {root, trbottomleft, trbottomright, trtopleft, trtopright, align, square} = css;
 	const {apiBaseUrl, defaultCountry, apiKey} = config;
 	const [states, setStates] = useState([]);
 	const [cities, setCities] = useState([]);
@@ -117,4 +116,4 @@ const Container = React.memo((props: ContainerProps) => {
 	)
 });
 
-export default styleable(css)(Container);
+export default withStyles(css)(Container);

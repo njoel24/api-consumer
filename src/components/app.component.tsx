@@ -1,14 +1,13 @@
 import React from "react";
-import styleable from "react-styleable";
+/* tslint:disable no-submodule-imports */
+import withStyles from "isomorphic-style-loader/withStyles";
 import Header from "./header/header.component";
 import Footer from "./footer/footer.component";
 import Container from "./container/container.component";
 import css from "./app.module.css";
 
-export interface AppProps { css: Record<string, any> };
-
-const App = (props: AppProps) => {
-	const {css: {root}} = props;
+const App = () => {
+	const {root} = css;
 
 	return (
 		<div className={root}>
@@ -19,4 +18,4 @@ const App = (props: AppProps) => {
 	)
 };
 
-export default styleable(css)(App);
+export default withStyles(css)(App);
