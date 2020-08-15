@@ -1,6 +1,7 @@
 import path from 'path';
 import fs from 'fs';
 import express from "express";
+import https from "https";
 import React from 'react';
 /* tslint:disable no-submodule-imports */
 import { renderToString } from "react-dom/server";
@@ -36,7 +37,11 @@ server.get('/', (_: any, res: any) => {
 
 server.use(express.static("./dist"));
 
-server.listen(PORT, () => {
-	/* tslint:disable no-console */
-	console.log(`Server is listening on port ${PORT}`);
-});
+https.createServer({
+		key: fs.readFileSync('./keys/server.key'),
+		cert: fs.readFileSync('./keys/server.cert')
+	  }, server)
+	  .listen(PORT, () => {
+		/* tslint:disable no-console */
+		console.log(`Server is listening on port ${PORT}`);
+  	});
